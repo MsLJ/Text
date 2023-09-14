@@ -1,0 +1,18 @@
+//JVM이 OS위에 올라가고
+//->Static들 만들어지고
+//->main으로 가서 시작
+
+//JSP Model2:직접 다
+// 		DAO를 직접 싱글턴 작업을
+//		->Static영역에
+//		->DAO가 만들어지고 ->HomeController만들어짐
+	
+//(Spring+Maven+MyBatis) Framework:자동으로
+//		Spring에서는 자동으로
+//		->Static영역이 아니다
+//		DAO를 servlet-context.xml에 하나 만들어놨음
+//		C도 servlet-context.xml에 하나 만들어놨음
+//		SqlSession servlet-context.xml에 하나 만들어놨음
+//Spring: servlet-context.xml에 등록해놓으면 자동으로 객체 만들어줌
+//DAO가 먼저 생성? C? SqlSession?(어떤 객체가 먼저 생성될지 모름)
+// SqlSession->DAO->Controller 순으로 객체 생성이 되어야할것

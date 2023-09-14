@@ -1,0 +1,84 @@
+만든 프로그램(wc.jar)
+분석할 파일(rj.txt)
+을~/hadoop/hadoop-3.3.6폴더로 업로드
+
+하둡 폴더로
+[NN]
+cd ~/hadoop/hadoop-3.3.6
+--------------------------------
+끄기
+[NN]
+sbin/stop-all.sh
+--------------------------------
+찌꺼기폴더 삭제
+[다]
+rm -rf ~/hadoopTmpData
+--------------------------------
+하둡시스템 포맷
+[NN]
+bin/hadoop namenode -format
+bin/hadoop datanode -format
+--------------------------------
+켜기
+[NN]
+sbin/start-all.sh
+--------------------------------
+확인
+[다]
+jps
+--------------------------------
+HDFS(Hadiio Distributed File System)
+하둡이 사용하는 논리적인 공간
+실제로는30G X 3 하둡이 90G하나로 사용
+.csv/.txt
+하둡은 HDFS에 있는 파일을 분석
+	Linux HDD확인 
+		ls
+HDFS확인
+	bin/hadoop  fs  -ls  HDFS경로
+	bin/hadoop fs -ls  /
+HDFS에 있는거 삭제
+  bin/hadoop fs -rm =r HDFS경로
+  bin/hadoop fs -rm -r /rjResult
+
+
+1)분석할 파일을 Linux HDD->HDFS로 보내기
+rj.txt파일을 HDFS경로의 최상위에 보내겠다
+   bin/hadoop    fs  -put  뭐를[L]  어디로[H]
+   bin/hadoop   fs  -put  rj.txt    /
+bin/hadoop   fs  -put  DaumNews.txt    /
+2)프로그램 실행
+ bin/hadoop  jar 프로그램[L]
+ bin/hadoop jar wc.jar
+ bin/hadoop jar wc2.jar  /DaumNews.txt  /dnResult
+
+실행하면 결과폴더에 part-r-00000이라는 결과파일이 생김
+키\t값\n
+키 오름차순
+
+3)HDFS에 있을 결과파일->Linux HDD로 가져오기
+bin/hadoop  fs  -get  뭐를[H]                       어디로[L]
+bin/hadoop  fs  -get  /rjResult/part-r-00000  rjResult.txt
+vi rjResult.txt
+--------------------------------
+﻿HDFS로 보내기
+bin/hadoop   fs  -put  DaumNews.txt    /
+실행
+ bin/hadoop jar wc2.jar  /DaumNews.txt  /dnResult
+결과파일 LinuxHDD로
+bin/hadoop  fs  -get  /dnResult/part-r-00000  dnResult.txt
+
+Linux에서 win로 가져가서 판다스
+Pandas:형태 소분석
+
+
+
+
+
+
+
+
+
+
+
+

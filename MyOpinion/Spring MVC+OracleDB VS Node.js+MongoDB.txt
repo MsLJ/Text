@@ -1,0 +1,15 @@
+Spring MVC 	vs 	Node.js
+전통의 웹 개발 용이		실시간 통신 용이	
+	
+실시간 통신 불편		전통의 웹개발 불편	
+
+OracleDB		vs	MongoDB
+정형			비정형
+웹사이트			비정형데이터
+
+OracleDB		->	MongoDB
+
+
+
+웹개발:Spirng MVC+OracleDB
+실시간:Node.js

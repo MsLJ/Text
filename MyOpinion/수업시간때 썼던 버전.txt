@@ -1,0 +1,16 @@
+Java
+	필수:JDK(OpenJDK1.8)설치
+	옵션(툴): 정통Eclipse->eGovFramework
+
+Python
+	필수:Python3.6.8설치
+	옵션:
+Tomcat
+
+Json
+
+Spring
+
+OracleDB
+
+MongoDB

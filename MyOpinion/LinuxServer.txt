@@ -1,0 +1,138 @@
+서버:원격제어
+원격에서 프로그램 설치하고
+
+win:ipconfig
+linux:ifconfig
+eth0:리눅스 컴퓨터가 인터넷 할때 쓰는
+	->10.0.2.15
+eth1:Win랑 통신할때 쓰는
+	192.168.56.101
+
+io->자기자신
+---------------------------------------------------------------
+ipconfig
+	192.168.56.1
+ping IP주소
+	ping 192.168.56.101
+
+
+win:인터넷->다운->설치파일실행
+
+java:maven
+node.js:npm
+python:pip
+linux
+	RedHat:yum
+	Debian:apt-get
+
+명령어->중앙저장소에서 다운받아와서 세팅
+
+원격제어:Telnet ->Secure shell
+		SSH
+
+ 목표:Linux컴을 SSH로 원격제어
+->
+Linux컴:SSH서버
+	openssh-server라는 프로그램 설치
+sudo:superuser do
+관리자 권한으로
+
+	sudo apt-get install 프로그램명
+	sudo apt-get install openssh-server
+
+Win컴:SSH클라이언트
+
+
+
+--------------------------------------------------------------------------------------
+
+﻿Window측에서 해야하는거
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+링크 들어가서 다운로드
+실행하면 리눅스 서버주소 192.168.56.101넣어주고 실행
+아이디 패스워드 입력
+
+﻿-----------------------------------------------------------------------------------------
+Linux
+현재 내 위치 확인
+pwd
+      /home/계정
+Win의C:\사용자\계정
+뭐 있나 확인
+ls(list약자)
+ls -l
+ls -a(숨겨진파일)
+ls -al : ll
+clear 비우기
+
+경로체계
+win)c:\...\..\
+Linux)/.../.../
+
+이동
+     ..:한단계 상위
+      . :현재위치
+     /:최상위
+     ~:홈 폴더
+      cd 경로 
+	cd ..
+
+폴더 만들기
+   	mkdir  이름
+	mkdir jul18
+
+	cd jul18
+
+vi에디터 tiny버전이 기본(AWSCloud받으면 여기까지는 기본적으로 해줌)
+sudo apt-get remove vim-tiny
+sudo apt-get install vim
+->키보드 화살표 못쓰게 하니까 하는 작업
+
+
+win)메모장
+linux) vi 에디터
+파일 열기(없으면 만들고,있으면 열고)
+	vi 파일명
+	vi a.txt
+->기본으로 설정모드
+
+설정모드->입력모드:a
+입력모드->설정모드:Esc
+설정모드에서 
+	/??:찾기 검색 win에서 ctrl+f느낌
+	dd:줄 삭제
+	yy->p:복붙
+	:q! 종료하고 나오기
+	:wq! 저장하고 종료
+
+win<->linux 파일 주고 받게
+
+AWS에서도 FTP작업은 수동으로 해줘야할것
+linux를 FTP서버로: vfstpd라는 프로그램 설치
+ 	sudo apt-get install vsftpd
+linux->win다운 받기만 가능한 상태라서
+설정파일 수정
+	sudo vi /etc/vsftpd.conf
+	#write_enable=Yes 앞에 주석 제거
+
+재시작
+	sudo service vsftpd restart
+
+
+win을 FTP클라이언트로
+
+파일전송  FTP(File Transfer Protocol)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

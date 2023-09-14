@@ -1,0 +1,2 @@
+그러면 따로 MongoDB ID값 seq써서 나열
+Python 뉴스 데이터 Parsing ->MongoDB->Python flask ->AJAX -> JSON형태로 된 데이터 JAVA에서 가져다 쓰기

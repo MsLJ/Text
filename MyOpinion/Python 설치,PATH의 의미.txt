@@ -1,0 +1,77 @@
+Python 설치
+->
+python Download쪽가서 버젼 3.6.8
+->
+files쪽에 windows x86-64 executable installer클릭
+
+환경변수
+PATH->
+cmd에서 굳이 그 파일 있는데까지 안가도 실행되는거
+EX:그냥 바탕화면에서 폴더안에 들어있는것들을 실행시키려고하면 안됄것이다 바탕화면 경로에는 그 폴더가있는거지
+그 폴더안에 있는 프로그램이 있는게아니니까
+->
+Java설치할때는 환경변수를 건들지 않았다 왜냐하면
+요즘[30년]에는 설치하면 자동으로 돼고
+
+
+근데 이 PATH를 설정하면 그냥 바탕화면에서 그 프로그램을 실행하면 알아서 자동으로 그 경로를 찾아가서 실행해준다.
+ADD Python 3.6 to PATH
+cmd명령어를 좀 쓰기위해 설치한다.
+
+Disable path length limit설치 이유
+->
+path는 260자제한이라서 만약 경로가 너무 길어지면 그걸 찾아가지 못할것 그래서 제한을 풀어준다. 
+
+Eclipse:메인은 자바쪽-> 자바는 어디있나 알아서 찾는데 Python은 어디에 있는지 못찾음
+
+Java
+->
+ Project의 개념이 중요
+
+
+Python
+->
+ Project라는 개념은 폴더 수준
+
+*
+기존에 하던 Anaconda와 연동돼어 제대로 작동을 못함 그래서
+references ->pydev intepreters ->python interpreter쪽 들어가서 remove하고
+Advanced Auto-config 들어가서 Anaconda말고 우리가 설치한 Python버전으로 설정*
+
+
+
+
+
+
+
+Python
+	필수:Python 3.6.8설치
+		->IDLE이라는 툴 (많이 약함)
+
+	옵션(툴):eGovFramework+PyDev(python관련 add-on)
+		https://www.pydev.org/download.html
+		->Eclipse 4.5, Java 8: PyDev 5.2.0
+
+		Eclipse ->help -> install New Software
+		add name:아무거나 Location:주소 넣고
+		체크해주고 next
+		window -> perspective ->Pydev open
+		다운로드 완료하면 Pydev모드
+
+
+		Anaconda
+			가상환경
+			분석 라이브러리 자동설치
+			Jupyter Notebook-웹 기반
+				분석결과 나오고
+		왜 가상환경?
+		자동설치X
+		분석결과가 JSON으로 나오게 웹 프로그래밍
+		서버에 올리고
+vscode
+pycharm
+...
+
+Java:OOPL
+Python:OOPL
+

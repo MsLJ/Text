@@ -1,0 +1,30 @@
+elasticsearch : 병렬DB
+win+linux
+win,linux
+
+hadoop=3대 쓰겠다고 설정
+3대 설정중에 설정 다른거 있으면 전체 x
+
+es:대장컴 실행해놓고
+어떤 1대 참여
+어떤 1대 참여
+
+컴끼리 서로 통신만 ->심지어 win도 되니
+
+-------------------------------------------------------------------------------
+
+?뱄툘  Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
+  9z_8NWDLC2byFP-CBvR0
+
+?뱄툘  HTTP CA certificate SHA-256 fingerprint:
+  a6e1103cf1217d25600a6300f1c08b5ef7de24c9f647f998489ea04fed8539a7
+
+?뱄툘  Configure Kibana to use this cluster:
+??Run Kibana and click the configuration link in the terminal when Kibana starts.
+??Copy the following enrollment token and paste it into Kibana in your browser (valid for the next 30 minutes):
+  eyJ2ZXIiOiI4LjEwLjAiLCJhZHIiOlsiMTk1LjE2OC45LjYzOjkyMDAiXSwiZmdyIjoiYTZlMTEwM2NmMTIxN2QyNTYwMGE2MzAwZjFjMDhiNWVmN2RlMjRjOWY2NDdmOTk4NDg5ZWEwNGZlZDg1MzlhNyIsImtleSI6ImRHNG1rWW9CaTdVd3VQejZmZzVnOmtrRGhLdkMwVEVpQzl2ZnBmRWN4cHcifQ==
+---------------------------------------------------------- 위에는 엘라스틱 실행시 비밀번호
+kibana(툴) : elasticsearch이랑 버전 같아야 (8.10.0)
+윈도우용 받아서 압축풀고
+bin\kibana.bat 실행 
+다 되면 6자리 인증코드 뜸

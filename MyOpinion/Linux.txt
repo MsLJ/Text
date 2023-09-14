@@ -1,0 +1,111 @@
+Linux:윈도우 대신 쓰는 운영체제
+
+가상 컴:Win속에 가짜로 Linux만들어서
+    -VMWare
+	유료/무료버전 존재
+	Linux쪽에 사양을 많이 배분
+	->Win쪽이 부실해짐
+	자동으로 설치 다 돼고..
+
+    -VirtualBox
+	무료
+	Linux쪽에 덜 줘서
+		->Win이 그나마 쌩쌩하게
+	실제 Linux설치처럼
+Linux x 5
+
+Linux
+	서버는 Linux
+		무료
+		명령어기반 원격제어 용이
+		권한시스템  강력
+		옛날부터 써왔어서
+	서버를 Win
+		유료
+		원격제어가 불편
+		권한시스템 이제는 강력
+
+
+Linux
+	OS제품명X->Core이름
+	다양한 회사에서 그 Core에
+	뭘 붙여서 리눅스 배포판이라는걸
+	출시
+
+Windows
+	MS사의 OS제품명
+
+
+Ubuntu리눅스->우리가 할꺼
+	개인
+
+Ubuntu 설치(ISO Image)-> 
+https://releases.ubuntu.com/trusty/들어가서 
+Desktop image 64-bit Pc누르기
+.iso:압축풀기X
+디스크 이미지
+설치 usb
+
+가상머신 쓸수있게
+Virtual Box
+UbuntuLinux 14.04.06
+설치 USB구한거
+
+설치 시작->
+oracle Vm virtualbox-> 새로만들기->Ubuntu14.04LTS 64Biit(ISo Image=Usb꽃는거)->
+Hard ware 설정 기본메모리(최소 2048Mb) ->Hard disk (20GB)
+
+설정 ->저장소 -> 광학 드라이브 옆에 아이콘 누르고 ->ISO Image추가
+실제 컴퓨터에는 필요없지만 우리가 지금 virtual컴픂터이기에 설정을 추가로 해주는 
+->네트워크
+#그림판 설명
+어댑터1설정
+빨간색은 인터넷에 쓰는 RAM
+어댑터2설정
+ 초록색은 우리 컴퓨터에 쓸쑤있는Ram
+
+
+실행버튼 누르고 ->거기서 나오는 언어설정은명령어 기반으로 할꺼라English
+->그리고 계속 next누르다가 나오는 지역고르는건 어차피
+시간 설정하는거라 Seoul로해도 상관X
+name:l
+password:1
+장치-광학 드라이브 -가상 드라이브에서 -디스크 꺼내기
+그냥 재부팅하면 해결
+
+ctrl+alt+t
+
+win:ipconfig
+linux:ifconfig
+eth0:리눅스 컴퓨터가 인터넷 할때 쓰는
+	->10.0.2.15
+eth1:Win랑 통신할때 쓰는
+	192.168.56.101
+
+io->자기자신
+---------------------------------------------------------------
+ipconfig
+	192.168.56.1
+ping IP주소
+	ping 192.168.56.101
+
+랜카드:interface
+
+Redhat리눅스
+	기업(지원이 강력)
+	클라우드반
+	
+Debian계열
+	Debian리눅스
+	Ubuntu리눅스-V
+	Raspbian리눅스
+	....
+RedHat걔열
+	Redhat -V
+	CentOS
+	fedora
+	....
+Android 계열
+
+Macintosh계열
+

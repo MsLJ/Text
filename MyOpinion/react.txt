@@ -1,0 +1,68 @@
+HTML->HTML/CSS/JS->Servlet ->JSP ->JSP Model2
+->JSP Model 2/EL/JSTL->Spring ->Spring Boot
+'
+
+HTML/CSS/JS->
+JS를 주축으로 하면
+프로그램적인 부분이 해결
+다양한 회사에서 Front-end Framework
+face book->react.js->Virtual DOM
+??? ->vue.js
+
+JS/jQuery:HTML에서 특정부분만 수정가능 - x
+	특정 부분만 바뀌는것처럼  보일 뿐
+	HTML전체를 다시 그리는
+
+React:작업->화면(x)
+	작업->VirtualDOM에 그림->VDOM에서 바뀐 부분만 화면에 반영
+	
+	화면에 변화가 잦은 사이트에 유용
+	변화가 잦지 않은 사이트면 괜히 VDOM어쩌고 하느라 느려질 뿐
+
+JS라서 
+->보통 node.js서버에 올려서
+
+yarn시스템 설치--------------------------
+cmd
+npm
+페북측에서 만든 npm같은거 :yarn
+npm install yarn -g
+
+프로젝트 만들기----------------------
+프로젝트 만들곳에 가서 cmd
+yarn create react-app 프로젝트명(프로젝트명에 대문자x)
+
+실행----------------------------
+cd 프로젝트명
+yarn start
+
+소스 따로 편집
+html/css/JS주력 
+
+vscode
+	Eclipse처럼 IDE급x
+	강력한 자동완성기능 메모장
+확장설치--------------------------------------
+ESLint: JavaScript자동완성
+ES7+React/Redux/React-Native...:react자동완성
+Prettier - Code....:소스정렬
+Korean Languange Pack....:
+
+
+파일 기본설정 테마 
+
+포트번호 바꾸기----------------
+package.json파일에 들어가서
+디버그 scripts에 start수정
+   "start": "set Port=80 && react-scripts start",
+
+
+Eclipse->ctrl단축키
+vsCode->alt단축키
+예시:소스정렬 단축키 alt + shift + f
+
+HTML/CSS : 디자이너
+
+
+
+

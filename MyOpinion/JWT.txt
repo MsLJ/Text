@@ -1,0 +1,25 @@
+yarn add axios
+
+JWT(JSON WEB TOKEN)
+	데이터를 암호화
+	만료시간이 있는
+	JSON을 주고받는
+
+
+
+session:클-서 연결
+	-구조가 다르고
+	-가끔 인터넷이 끊길때가 ->세션 끊김?
+	-서버가 여러대
+		클1-서1 연결
+		클2-서2 연결
+		......
+		서1뻗어서 ->클1을 서2에 연결
+		서버들끼리 세션정보 공유?
+
+
+	Spring/Springboot:거기서 만들어낸 html
+		전체적으로 tomcatWAS속에서..
+
+	react:tomcatWAS따로
+		node.jsWAS따로

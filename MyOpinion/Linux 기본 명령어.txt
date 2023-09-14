@@ -1,0 +1,168 @@
+Linux
+현재 내 위치 확인
+pwd
+      /home/계정
+Win의C:\사용자\계정
+뭐 있나 확인
+ls(list약자)
+ls -l
+ls -a(숨겨진파일)
+ls -al : ll
+clear 비우기
+
+경로체계
+win)c:\...\..\
+Linux)/.../.../
+
+이동
+     ..:한단계 상위
+      . :현재위치
+     /:최상위
+     ~:홈 폴더
+      cd 경로 
+	cd ..
+
+폴더 만들기
+   	mkdir  이름
+	mkdir jul18
+
+	cd jul18
+
+
+복사
+cp   대상 어디
+cp a.txt jul19
+
+
+이동 
+어디자리에 폴더 : 단순 이동
+어디자리에 파일명 : 이동+파일명 수정
+  mv  대상  어디
+  mv  b.txt  ..
+
+  mv  b.txt jul19/c.txt
+
+이름 바꾸기
+  mv  b.txt  ./c.txt
+
+삭제
+ 폴더삭제:rmdir 폴더명
+ 파일삭제:rm 파일명
+	rmdir jul19
+	폴더는 안에 아무것도 없는것만 삭제 가능
+	rm -rf
+	폴더도 지워라 안에 뭐 있어도
+
+	rm a.txt
+
+	DOS=> Windows
+	Linux
+	디렉토리
+
+ctrl+c는 Linux에서 프로그램 종료
+
+압축
+     아카이빙:파일 여러개를 하나로 묶는 
+	Tape Archive: .tar
+     압축:파일 하나에 사이즈를 줄이는
+	GZip:.gz
+	Bzip2:.bz2
+      tar  옵션  대상
+	c:압축하기
+	x:풀기
+	
+	v:과정보기
+
+	z:gz
+	j:bz2
+	f 압축 파일명
+tar  cvzf  jul1919.tar.gz   jul19
+tar  xvzf  jul1919.tar.gz
+윈도우로 가져와서 풀기
+
+zip으로 압축하기
+ zip  -r  파일명            대상
+ zip  -r   jul1919.zip       jul19
+
+zip 압축풀기
+ unzip  파일명
+ unzip  jul1919.zip
+
+테이프
+
+디스크
+   HDD SSD
+     알고있는 압축=아카이빙+압축
+     mkdir  jul19
+
+windows
+      
+
+pip는 없음->따로 설치
+
+sudo apt-get install python3-pip
+
+sudo pip3 install pymongo==3.9
+
+sudo pip3 install cx_Oracle==7
+
+Python+OracleDB:cx_Oracle
+cx_Oracle이 ojdbc?.jar를 씀
+
+OracleDB에 접속하려면 
+instant client라는 프로그램 필요
+https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html
+에서 다운로드
+﻿
+OracleDB에 접속하려면
+
+instant client라는 프로그램 필요
+
+
+https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html
+
+www.oracle.com
+
+instantclient-basic-linux.x64-21.10.0.0.0 dbru.zip의 주소
+
+https://download.oracle.com/otn_software/linux/instantclient/2110000/instantclient-basic-linux.x64-21.10.0.0.0dbru.zip
+
+
+instantclient-sqlplus-linux.x64-21.10.0.0.0 dbru.zip의 주소
+
+https://download.oracle.com/otn_software/linux/instantclient/2110000/instantclient-sqlplus-linux.x64-21.10.0.0.0dbru.zip
+
+instantclient-jdbc-linux.x64-21.10.0.0.0 dbru.zip의 주소
+
+https://download.oracle.com/otn_software/linux/instantclient/2110000/instantclient-jdbc-linux.x64-21.10.0.0.0dbru.zip
+
+
+wget 주소
+
+w get 위에 세개
+
+
+unzip 파일명
+
+Debian계열 UnuntuLinux
+Redhat용
+
+  환경변수설정
+      sudo mkdir /opt/oracle
+      sudo mv instantclient_21_10 /opt/oracle
+      sudo sh -c "echo /opt/oracle/instantclient_21_10 > /etc/ld.so.conf.d/oracle-instantclient.conf"
+      sudo ldconfig
+
+      sudo vi ~/.bashrc
+         export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_10:$LD_LIBRARY_PATH
+         export PATH=/opt/oracle/instantclient_21_10:$PATH
+      source ~/.bashrc
+
+﻿
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+그러면 Json parse하기 전에 무조건적으로 필요한것
+->
+주소 불러와서 주소랑 연동하고 한마디로 Parse할 데이터 필요   그 안에있는 정보들을 Json에 넘겨주는 작업이 필요 그러면 URL과 inputStreamreader가 필요할것
+->
+후에 JsonParsing하기위해
+JSONParser jp=new JSONParser();를 만들고
+JSONObject jo=(JSONObject)jp.parse(갖고올꺼);//전체 다 불러오기
+JSONArray ja=(JSONArray) jo.get("weather");
+//만약에 배열안에 있으면 JsonArray 를 사용
+JSONObject w=(JSONObject) ja.get(0); //그 외에 그냥 배열 밖에있는것들

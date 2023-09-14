@@ -1,0 +1,28 @@
+HTML 
+------
+HTML +CSS
+--------
+HTML +CSS+JavaScript
+----------------------
+Jsp+JavaScript
+----------------
+Jsp Model2+EL+JSTL
+--------------------
+Spring 유지보수 정부에서 시켜서
+
+Java기반 웹 개발자 Back-end개발자
+Spring MVC+ Maven+MyBatis
+
+Spring:JSP Model2의 발전형
+웹개발을 유지보수하기좋게?
+
+
+책 사서 본인이 공부하면 돼는 경지
+Spring -:진입장벽이 높아서 혼자 공부하기 어렵...
+대상독자: 개발전문가
+환경설정?
+프로젝트?
+C++ v s Spring
+Spring : Java loC로 DI해주는
+Framework
+

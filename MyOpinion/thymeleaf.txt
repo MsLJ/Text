@@ -1,0 +1,5 @@
+Spring boot폴더쪽 들어가서 SpringToolsuite4.ini
+--add-opens=java.base/sun.security.ssl=ALL-UNNAMED
+이거 위에 하나 복사 붙여넣기 해서 
+--add-opens=java.base/java.lang=ALL-UNNAMED
+이렇게 하나 수정하기

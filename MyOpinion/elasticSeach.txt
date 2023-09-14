@@ -1,0 +1,3 @@
+elasticsearch : 병렬DB
+win+linux
+win,linux

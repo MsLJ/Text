@@ -1,0 +1,2 @@
+c:when을 쓸꺼면 위에 c:choose를 먼저 써야하고
+그 후에 C:otherwise까지 써야 쓸수있다

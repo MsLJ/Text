@@ -1,0 +1,21 @@
+Java Socket서버-x
+
+OracleDB 11gR2 xe서버-
+포트번호  :1521
+195.168.9.65
+
+TomcatWAS
+포트번호:80
+195.168.9.63
+
+Node.js express WAS
+포트번호:????
+195.168.9.63
+
+MongoDB Server
+포트번호:27017
+195.168.9.65
+
+Node.js Socket.io 웹소켓 서버
+포트번호:????
+195.168.9.63

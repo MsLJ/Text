@@ -1,0 +1,22 @@
+
+#Java openJDK(1.8)
+https://blog.naver.com/llife_/223157545689
+
+#Python(3.6.8)
+https://blog.naver.com/llife_/223149643139
+
+#Spring(그 링크내에 내용들 수정 필요)
+https://blog.naver.com/llife_/223138832652
+https://blog.naver.com/llife_/223141812962
+
+#Tom cat(8.5.88)
+https://blog.naver.com/llife_/223161211378
+
+#OracleDB(Oracle11)&&ojdbc8
+https://blog.naver.com/llife_/223091277892
+
+#Node.js(18.17.0 LTS)+Mongo DB server(6.0.7)&&MongoDB Shell(1.10.1)
+
+https://blog.naver.com/llife_/223146640412
+
+

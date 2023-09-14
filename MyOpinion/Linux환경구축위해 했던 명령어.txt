@@ -1,0 +1,32 @@
+Linux
+Open JDK---------------------------------------------------
+apt-get 저장소 추가
+	sudo add-apt-repository ppa:openjdk-r/ppa	
+	sudo apt-get update
+JDK 설치
+	sudo apt-get install openjdk-8-jdk
+
+ifconfig->eth1 IP주소확인(oracle vm VirtualBox에서)
+-여기부터는 putty로 진행-
+sudo apt-get install openssh-server
+sudo apt-get remove vim-tiny
+sudo apt-get install vim
+sudo apt-get install vsftpd
+sudo vi /etc/vsftpd.conf
+#write_enable=YES주석 제거
+sudo service vsftpd restart
+-----------------
+win에서 putty
+win에서 알드라이브 다운로드 linux에서 쓰려면 이게 편할것
+자바에서 Export하고
+파이썬에서 그냥 꺼내오고
+FTP쪽에 추가 누르고 Host에 서버 주소넣고
+아이디랑 비번적고 그냥 거기다가 파일 올리면 끝
+python 파일명
+
+putty는 꺼도 상관X
+
+서버:안끄는 컴퓨터
+현재시스템 상태 저장하기:안끄기
+???:정상종료
+시스템 전원 끄기:파워버튼

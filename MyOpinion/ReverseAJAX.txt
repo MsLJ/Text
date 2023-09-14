@@ -1,0 +1,20 @@
+AJAX:JavaScript로 비동기식통신을 해서 XML/JSON파싱
+
+Cross-Domain AJAX: 외부 데이터에 거는 AJAX
+
+Reverse AJAX : 
+	서버측에서 클라이언트 쪽으로 강제전송
+	polling->주기적으로 요청해서
+	  Reverse AJAX는 아니지만 기술적인방면
+	-> 계속해서 데이터를 반복하기에 핸드폰으로 들어오면 계속해서 데이터를 반복적으로 불러오는것이기에
+		데이터요금이 폭탄맞을것 그닥 좋지않은방식+디도스 형식 네트워크에 무리
+	
+
+	요청 ->응답 (HTTP)
+	
+
+
+ReverseAJAXClient
+
+TomcatWAS에서 서비스할
+	SpringMVC프로젝트의 V

@@ -1,0 +1,71 @@
+--------------유지보수-->.war수정하면 바로 ->보안적으로 제가 많음
+Spring
+MyBatis
+Maven
+-------------그냥 개발이나 편하게 하자
+Spring의 유지보수 좋다 : 보안적으로 약해짐
+개발할때는 힘들고
+
+
+Spring Boot?
+
+eGovFramework
+Spring:전통 구기술
+
+Spring Boot:해방 신기술
+
+STS(Spring Tool suite)4
+	JDK 17내장
+https://spring.io/tools
+들어가서 eclipse 4.19.0-Windows x86_64
+         Runnable jar file
+	java   -jar 파일명
+	
+따로 압축해제 해도 되는데
+	폴더명이 길어서 알집/반디집 다 실패
+
+	Spring Legacy MVC
+		Tomcat같은 WAS에 실어서 실행하는 웹 프로그램
+		=>.war
+		Maven->pom.xml
+		.jsp
+
+	Spring Boot
+		WAS가 내장되어있는 프로그램
+		=>.jar
+		Gradle
+		.jsp비추->HTML템플릿 엔진 권장
+		Srping Web
+		Thymeleaf
+		Spring Boot DevTools
+
+Maven:pom.xml->소스가 길다
+Gradle:build.gradle->소스 짧고,Groovy라는 언어를 써서 조건문도 가능
+
+HTML만드는건 디자인쪽 그렇기에 HTML파일 만드는게 없어서 추가 설치
+Eclipse Marketplace
+java and web 검색
+
+
+eclipse EE->eGoVFramework
+STS에는 없어서
+
+Spring legacy
+	1.8
+	.jsp
+	mybatis
+	JavaBean
+	Maven
+Spring Boot
+	1.17
+	thymeleaf
+	JPA
+	Lombok을 활용한 JavaBean
+	Gradle
+HTML만 templets에
+나머지 CSS JS 등등은 static폴더에
+
+HTML파일을 open with ->other ->HTML editor
+
+실행했을때 인터넷 브라우저 설정 preference들어가서
+general에 web Browser에서 chrome설정

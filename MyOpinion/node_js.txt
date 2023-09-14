@@ -1,0 +1,32 @@
+﻿18.17.0 LTS
+LTS(Long Term Service)
+장기 지원,안정적인 버전이기에 앞으로 LTS가 써져있는걸 쓸것
+
+
+Spring: JSP웹 개발 특화
+ 전통적으로 쓰이는 중
+ 주변에
+
+1.8
+
+Node.js: XML/JSON만들기에 특화
+	JavaScript로 하는 back-end프로그래밍
+	WAS내장
+	다양한 add-on
+
+ 
+
+JavaScript
+	Front-end언어
+
+Servlet
+	Java로 하는 서버 프로그래밍
+
+	Java
+	JSP-XML/ JSON
+-------------------
+	Spring -XML/JSON
+
+	HTML5/CSS3/jQuery : 단과
+	AJAX/Cross-domain AJAX
+	XML/JSON은 어떻게

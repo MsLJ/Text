@@ -1,0 +1,109 @@
+1.서버 컴퓨터에서 관리자 계정 만들기
+
+파일 경로:C:\DB
+아이피 주소195.168.9.65
+
+password: dlwnsgk0108
+
+cmd켜서 실행 명령어
+
+sqlplus / as sysdba
+
+제대로 켜져있는지 확인 하는법
+
+내 pc 관리 들어가서 서비스 및 응용 프로그램 -서비스
+Oracle ServiceXE 켜져있나 확인
+
+2.원격 접속되는 관리자계정 만들기(서버로 쓸 자리에서)
+
+sqlplus:프로그램명
+/ :지금:OS계정
+as sysdba: 관리자 권한으로
+
+2.1관리자 계정만들기
+  create user 관리자ID identified by 관리자PW;
+ms dlwnsgk0108
+2.2원격접속해서 쓸수있도록 권한부여
+grant connect, resource, dba to 관리자ID;
+
+2.원격 접속되는 관리자계정 만들기(서버로 쓸 자리에서)
+
+sqlplus:프로그램명
+/ :지금:OS계정
+as sysdba: 관리자 권한으로
+
+2.1관리자 계정만들기
+  create user 관리자ID identified by 관리자PW;
+ms dlwnsgk0108
+2.2원격접속해서 쓸수있도록 권한부여
+grant connect, resource, dba to 관리자ID;
+
+
+사용자 계정 만들기(내 자리에서)
+3.1.OracleDB서버에 접속하려면 instantClient라는 프로그램이 필요
+
+Basic Package
+SQL*Plus Package
+JDBC Supplement Package
+다운 다 받고 한곳에 한번에 압축풀기
+
+
+3.2 접속하기
+instantClient 폴더에서 cmd
+
+sqlplus 관리자아이디/관리자비번@주소:포트/디비명
+아이디	:
+비번	:
+주소	:
+포트번호	:1521(기본적으로)
+디비명(SID):xe
+
+3.3사용자 계정 만들기
+create user 아이디 identified by 비번;
+아디 ljh로 비번 동일
+
+3.4.role(권한세트) 설정
+  grant  connect, resource to 아이디; 
+
+3.5.테이블스페이스 만들기 다 한줄에
+create tablespace 테.스.명
+datafile '경로/파일명.dbf'
+size 500m;
+예시:create tablespace tbs datafile 'C:\DB/msTs.dbf' size 500m;
+이렇게 하면 서버쪽 컴퓨터에 파일이 생김
+
+3.6. 테이블 스페이스를 계정에게 배정
+alter user 아이디 default tablespace 테이블스페이스명;
+예시:alter user ljh default tablespace tbs;
+--------------------------------------------
+4.Oracle DB에 접속
+instantClient폴더에서 cmd
+sqlplus 아이디/비번@주소:포트/SID
+
+create table student(
+ name char,
+ age number
+);
+예시:
+create table student(
+  2   name char,
+  3   age number
+  4  );
+
+
+오라클 DB제어하기 (이클립스로)
+이클립스에서 window ->show view ->other Data manager-> Data source Exploer
+
+Data connections->New ->Oracle
+드라이버 추가
+
+ojdbc14.jar->Java 1.4용
+ojdbc8.jar->Java1.8용
+ojdbc14.jar지워주고
+
+instantClient폴더에서 ojdbc8.jar 추가 
+
+새로운 프로젝트 만들고 그 프로젝트에 New ->other->sql file->
+sever type->Oracle 11->아래것 알아서 맞춰주고
+
+

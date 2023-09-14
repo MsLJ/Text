@@ -1,0 +1,57 @@
+Spring legacy:
+	
+	.war로 만들어서->서버에
+	WAS에 업로드 해서 실행하는
+	실제 서버에 배포
+
+Spring Boot:
+	WAS가 내장된 프로그램
+	.jar로 만들어서->실행
+-----------------------------------------
+STS4에는 JDK17이 내장
+실제로 실행할 서버에 JDK17이..
+서버에 JDK17설치 필요
+https://github.com/ojdkbuild/ojdkbuild
+java-17-openjdk-17.0.3.0.6-1.win.x86_64.msi (sha256) 설치
+
+PATH:cmd에서 java뭐시기편하게
+이클립스에서 자동으로 해주는
+	
+
+1)cmd에서 실행할거고
+2)자동으로 된건 맞는데 1.8/1.17이 둘 다 있어서 
+그렇기에 Path설정 필요
+환경변수 Path쪽 편집 들어가서 
+이 환경변수 내에서 위에 먼저 있는게 자동으로 적용이되기에 상황에 맞게 내리든 올리든 설정
+
+리눅스 서버:
+1.8은 apt-get 중앙저장소에 없어서..
+1.17은 있으니까 그냥 바로 설치하면 문제x
+
+start버튼쪽에 runconfiguration ->gradle Task->New configuration
+->add->bootJar->workspace...->run
+
+프로젝트/build/libs에 만들어짐
+cmd키고 java -jar 파일명
+이러면 서버실행 완료(배포)
+
+
+Spring Boot
+	Beans.xml역활->.java에서
+
+
+Lombok->생성자 ,getter/setter 자동으로
+
+Lombok자동완성
+	STS종료
+	https://projectlombok.org/download 가서 다운로드
+	java -jar 파일명
+	실행되면 이클립스 어딨는지 못찾겠다고 알림뜨면 STS실행파일에 경로 지정해주고
+	install/update버튼 클릭
+	그럼 이제 자동완성 쓰는거 가능해지는
+	이제 프로젝트 만들때 Lombok도 추가
+
+	
+
+
+

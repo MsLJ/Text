@@ -1,0 +1,20 @@
+Node.js webSocket서버
+1)일단 express프로젝트 
+express 프로젝트명
+cd 프로젝트명
+npm install
+
+2)WebSocket기능 모듈 설치
+npm install socket.io@2
+(HTTP환경에서도 되게 일부러 구버전)s
+
+3)실행해두기
+nodemon app.js
+
+Linux:인증서...
+https
+
+
+
+
+Node.js express WAS

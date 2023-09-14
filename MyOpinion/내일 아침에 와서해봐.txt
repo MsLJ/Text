@@ -1,0 +1,2 @@
+$.each 문에 attr("onclick,delete(m.m_txt,m.m_date);
+를 하면 돼지 않을까?

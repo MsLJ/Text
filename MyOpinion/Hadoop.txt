@@ -1,0 +1,247 @@
+
+Linux환경설정
+->Linux사용방법
+->Hadoop
+
+Hadoop 
+	서버급 컴 여러대로
+	BD를 병렬 전처리
+	->Linux환경에서만
+	   실행되는 JAVA프로그램
+  서버급
+	서버 ->Linux기반
+-------------------------------------------
+Hadoop 설치 복잡...
+	->샘플 프로그램이 하나 있는데(나쁘지않)
+
+하둡 프로젝트에 참여하는 컴퓨터들:DataNode
+DataNode중에 리더역활하는 컴퓨터:NameNode
+
+Ram=2048 MB
+HDD=30GB
+1대
+
+1)설치
+[다]
+*주의사항*
+   하둡에 참여하는 컴퓨터들끼리는 관리자 계정 ID, PW를 똑같게 설치
+    l
+    1
+
+IP주소 확인
+[다]
+   ifconfig
+NN=192.168.56.102
+DN2=192.168.56.104
+DN3=192.168.56.103
+------------------------------------------------------------------
+2)SSH서버로(원격으로 제어해줄수있게해주는
+[다]
+   sudo apt-get install openssh-server
+   확인 위해 putty로 한번 접속 해보기
+Win에서 ssh하려면 putty가 필요
+Linux에서 ssh하려면:기본
+
+NN에서 DN2로 ssh
+   ssh  DN2의 주소
+이걸로 이제 NN에서 DN2로 들어가짐 ifconfig하면 192.168.56.104
+
+exit로 나오기
+
+하둡이 컴끼리 데이터를 주고 받을때 
+비번 안쓰는 ssh를 사용
+
+각자 컴퓨터에서 인증서를 만들기
+인증서를 서로 주고받고 그게 확인돼면 비번 필요없이 SSH가능
+[다]
+   ssh-keygen -t rsa -> 그냥 엔터 세번
+
+인증서를 다른 모든 컴퓨터(자기 포함)에 전송
+[다]
+   ssh-copy-id -i ~/.ssh/id_rsa.pub l@192.168.56.102
+   ssh-copy-id -i ~/.ssh/id_rsa.pub l@192.168.56.104
+   ssh-copy-id -i ~/.ssh/id_rsa.pub l@192.168.56.103
+   ...
+
+  ex) 192.168.56.101에서
+      ssh-copy-id -i ~/.ssh/id_rsa.pub kwon@192.168.56.101
+      ssh-copy-id -i ~/.ssh/id_rsa.pub kwon@192.168.56.102
+      ssh-copy-id -i ~/.ssh/id_rsa.pub kwon@192.168.56.103
+------------------------------------------
+192.168.56.101 컴퓨터에서
+ssh 192.168.56.102해서 비번 입력 없이 접속되면 성공
+----------------------------------------------------------------
+3)기타 설치
+
+설정파일 좀 건들게
+vim -> vim-tiny
+[NN만]
+   sudo apt-get remove vim-tiny
+   sudo apt-get install vim
+
+
+윈도우에서 프로그램 만들어서 보내야
+FTP서버로
+[NN만]
+   sudo apt-get install vsftpd
+   sudo vi /etc/vsftpd.conf
+	write_enable=YES 주석제거
+   sudo service vsftpd restart
+
+JDK설치
+[다]
+   sudo add-apt-repository ppa:openjdk-r/ppa
+   sudo apt-get update
+   sudo apt-get install openjdk-8-jdk
+-------------------------------------------
+NN쪽에 알드라이브 사용 가능해져야
+다 java -version가능해야
+-------------------------------------------------
+4)
+[NN만]
+하둡 디렉토리 만들기
+   cd ~
+   mkdir hadoop
+   cd hadoop
+
+다운받기
+https://hadoop.apache.org/releases.html 에 들어가서 binary에 들어가서
+HTTPS 링크 주소 복사해서 그 주소 wget 주소 --no-check-certificate
+   wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz --no-check-certificate
+
+압축해제
+   tar xvzf hadoop-3.3.6.tar.gz
+
+압축파일 삭제
+   rm -rf hadoop-3.3.6.tar.gz
+
+설정파일 있는 폴더로 이동
+   cd hadoop-3.3.6/etc/hadoop
+
+설정파일 수정
+   vi hadoop-env.sh
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+   vi core-site.xml
+	<configuration>
+		<property>
+			<name>fs.default.name</name>
+			<value>hdfs://[NameNodeIP]:9000</value>
+		</property>
+		<property>
+			<name>hadoop.tmp.dir</name>
+			<value>/home/[계정]/hadoopTmpData</value>
+		</property>
+	</configuration>
+
+*위에꺼 컴퓨터가 문제가생기면 아래의 주소 컴퓨터가 대신 그 역활을 해줄수있게 설정*
+   vi hdfs-site.xml
+	<configuration>
+		<property>  
+			<name>dfs.replication</name>  
+			<value>[컴퓨터수]</value>  
+		</property>  
+		<property>  
+			<name>dfs.http.address</name>  
+			<value>[NameNodeIP]:50070</value>  
+		</property>    
+		<property>  
+			<name>dfs.secondary.http.address</name>  
+			<value>[다른 컴퓨터IP]:50090</value>  
+		</property>  
+	</configuration>
+
+   vi mapred-site.xml
+	<configuration>
+		<property>
+			<name>mapred.job.tracker</name>
+			<value>[NameNodeIP]:9001</value>
+		</property>
+	</configuration>
+
+   vi workers
+	컴퓨터들 IP주소 다 등록
+
+원래는 이걸 이제 모든 컴퓨터에 다 적용해야해서 x2번의 작업이 필요할것
+근데 그러지말고 작업해놓은걸 압축하고 그걸 복사해서 다른컴퓨터에 옮겨서 압축을 풀자. 
+5)
+설정끝난 hadoop폴더 압축해서
+[NN만]
+   cd ~
+   tar cvzf myHadoop.tar.gz hadoop
+   가상 컴퓨터 사양이 안좋아서 이 작업을 또 하게될경우가 많으니
+   알드라이브로 myHadoop.tar.gz윈도우즈로 가져와서 보관
+
+압축파일을 각 컴퓨터로 보내기
+[NN만]
+   192.168.56.104
+  192.168.56.103
+   scp myHadoop.tar.gz l@192.168.56.104:/home/l/myHadoop.tar.gz
+   scp myHadoop.tar.gz l@192.168.56.103:/home/l/myHadoop.tar.gz
+
+압축해제
+[나머지컴에서]
+   tar xvzf myHadoop.tar.gz
+   rm -rf myHadoop.tar.gz
+
+6)실행
+이동
+[NN만]
+cd ~/hadoop/hadoop-3.3.6
+----------------------------
+데이터 노드 시스템 포맷(하둡시스템)
+[NN만]
+bin/hadoop datanode -format
+
+네임노드 포맷
+[NN만]
+bin/hadoop namenode -format
+-----------------------------------------
+시작
+[NN만]
+sbin/start-all.sh
+-----------------------------------------
+확인
+[다]
+jps
+
+
+
+
+
+실행중인 하둡 종료
+[NN만]
+sbin/stop-all.sh
+
+찌꺼기 폴더 삭제
+[다]
+rm -rf ~/hadoopTmpData
+
+
+데이터노드 포맷
+[NN만]
+bin/hadoop datanode -format
+
+
+Hadoop은 DB연결이 x 그래서 계속해서 CSV파일과 Txt파일로 만들던것이였다.
+Hadoop은 HDFS라는 특수한 공간
+에 있는 파일만 할줄알
+
+분석용 파일을 HDFS로
+bin/hadoop  fs  -put  KakaoBlog.txt    /
+
+샘플 프로그램 돌려서 분석(우리가 파이썬에서 했던 wordCount작업이 아예 기능적으로 있는)
+bin/hadoop  jar  share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar  wordcount  /KakaoBlog.txt   /kakaoResult
+
+분석 결과 파일 가져오기
+bin/hadoop  fs  -get /kakaoResult/part-r-00000 ./kakaoResult.txt
+
+HandShake라는 기능이있는
+서로 살아있는지 통신을 보내보는 
+->그래서 동시에 끄지않으면 뒤죽박죽이 될 확률이 높다.
+
+
+
+
+
+

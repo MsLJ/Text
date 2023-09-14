@@ -1,0 +1,15 @@
+npm install xss
+
+var xss = require('xss');
+io.sockets.on("connection", function(socket) {
+  socket.on("clientMsg", function(m) {
+		const sanitizedInput = xss(m.txt);
+		 const escapedMsg = escapeHtml(sanitizedInput);
+    io.sockets.emit("serverMsg", { nn: m.nn,
+            txt: escapedMsg});
+  });
+});
+
+function escapeHtml(unsafe) {
+    return unsafe.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}

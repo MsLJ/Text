@@ -1,0 +1,24 @@
+1.Single-thread,blocking I/o- 10m
+
+
+2.multi-thread,blocking I/o- 5m
+	요청 하나에 thread가 하나씩?
+	컴퓨터 자원을 많이
+	JSP/Spring
+3.Single-thread, non-blocking I/o-5m
+	컴퓨터 자원을 많이 안씀
+	Node.js
+	소스가 압도적으로 짧
+	react/vue/svelte등.. 쟤들이 back-end로 node.js
+	
+
+
+....
+aws cloud에 프로젝트 올려서 끝
+서버 : 리눅스
+윈도우 alt+f4 프로그램 강제종료
+리눅스 ctrl+c ==윈도우 alt+f4
+
+node.js 
+	서버프로그래밍
+	linux타겟인데 이제는 win에서도 될뿐

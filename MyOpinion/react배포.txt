@@ -1,0 +1,12 @@
+서버에 react실행방법
+node.js + yarn
+yarn start도 돼지만
+------------------>수정은 편하겠지만 react자체가 너무 무거워서 사실상 실전에서는 못쓰는
+개발끝나고
+배포하고싶으면
+yarn build
+->project에 build라는 폴더 생김
+->그 안에 있는거를 서버에 올리면 끝
+ex:tomcat\webapps\ROOT
+
+react:javascript 

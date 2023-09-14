@@ -1,0 +1,183 @@
+MongoDB:
+	Node.js팀에서 만든
+	NoSQL -> JavaScript
+	
+테이블 안만들고
+		그냥 데이터를  insert ->테이블 없는데 ->자동으로만듬
+		규칙을 정의하지 않고,자유롭게 쓰는 컨셉
+	-	>비정형데이터에 어울림
+		자료형도 불필요하다 JavaScript기반 var
+
+
+OracleDB
+	정의하고,구칙에 맞게 쓰는 RDBMS계열
+	비정형데이터에 적절하지는 않음
+
+신문기사 저장
+create table newspaper(
+n_no number(5) primary key,
+n_title varchar2(100 char) not null,
+n_txt varchar2(5000 char)not null,
+n_date  date not null
+
+);
+
+
+Mongo DB접속
+
+	https://www.mongodb.com/try/download/shell
+에서 shell 받고 압축 풀어서
+
+
+	mongosh\bin 압축 푼 폴더로 가서 cmd
+	mongosh 서버주소
+	mongosh  195.168.9.65
+---------------------------------------------------------------------
+
+Mongo DB는id_ ObjectId라는게 있는데 이게 MySql의 primarykey역활을 해준다.
+-->빅데이터:1억개 수정,삭제? 필요x 그렇기에 자동으로 생성
+Primary key
+	필드를 만들고 ->pk지정
+	_id필드가 PK
+	-id필드 안쓰면 ->그 객체의 주소값을 자동으로 넣는다
+	-id쓰면 primary key적용 중복x
+db.jul05_menu.insertOne({
+	_id:"소고기김밥",
+	m_price:5000
+});
+	
+OracleDB:xe
+MongoDB:test
+DB만들기 -x
+DB바꾸기
+	use DB이름;
+	use xe;
+테이블 만들기 x
+insert==C (data Create) 
+	db.테이블명.insert(JS객체);
+	
+	db.jul04_snack.insertOne({
+			s_name:"새우깡",
+			   s_price:500,
+			s_maker:"농심"	
+});
+Cmd창에서는 ctrl+v가 안먹혀서 마우스 우클릭
+
+현재 시간날짜를 표현하고싶다면
+db.jul05_menu.insertOne({
+_id:"김치",
+m_exp: new Date()
+});
+db.jul05_menu.insertOne({
+_id:"김치라면",
+m_exp: new Date(2023,8,1)
+});
+Java의 Date객체:2000년대를 상상도 안하던 시절에 만들어져서->현시점에 안맞아서 
+여긴 JavaScript기반이여서 그냥 생성자 추가하면 될것
+
+
+----------------------------------------------------------------------------------------
+R
+select(전체조회)
+	db.테이블명.find(JS객체);
+where m_price=4000
+db.jul05_menu.find({m_price:5000});
+db.jul05_menu.find({_id:"김치"});
+
+where m_price>4000
+db.테이블명.find({필드명 : {"연산자" : 값}});
+db.jul05_menu.find({m_price:5000});
+$lt $lte 	$not	$gt $gte $regex
+<   <=   	!=	>    >=	like
+db.jul05_menu.find({m_price:{"$gt":4000}});
+
+db.jul05_menu.insertOne({
+_id:"밥",
+m_price: 10000
+});
+
+where m_name like'%밥%'
+db.jul05_menu.find({_id:{"$regex":"밥"}});
+
+where m_price >3000 and m_price <5000
+$and $or
+db.테이블명.find(
+{
+"연산자":[
+      {조건식1},{조건식2}
+  ]
+}
+
+);
+db.jul05_menu.find({
+  "$and": [
+    { "m_price": { "$gt": 3000 } },
+    { "m_price": { "$lt": 50000 } }
+  ]
+});
+
+밥 or 면 시리즈
+
+db.jul05_menu.find({
+ "$or":[
+ {_id:{"$regex": "밥"} },
+ {_id:{"$regex": "면"}}
+ ]
+});
+
+정렬
+1:오름차순
+-1:내림차순
+db.테이블명.find(JS객체).sort({필드명:1,필드명:-1,...});
+전체, 가격 비싼순
+db.jul05_menu.find().sort({"m_price":-1});
+db.jul05_menu.find().sort({_id:1});
+
+밥 시리즈 가격 비싼순-> 메뉴명 가나다 역순
+db.jul05_menu.find({
+_id:{"$regex":"밥"}
+}).sort({"m_price":-1,_id:-1});
+
+rownum
+skip에 쓴것만큼 빼고 limit에 쓴 만큼 가져오기
+db.테이블명.find().sort().skip(갯수).limit(갯수);
+
+전체 가격 역순,3번부터 5번까지 가져오기
+db.jul05_menu.find().sort({"m_price":-1}).skip(2).limit(3);
+
+--------------------------------------------------------------------------
+U
+db.테이블명.updateMany({찾을거},{"$set": {바꿀내용}});
+떡의 가격을 3000원으로$set이라는 연산자를 사용해야한다.
+db.jul05_menu.updateMany({_id:"떡"},{"$set":{m_price:3000}});
+
+
+
+D
+db.테이블명.deleteMany(JS객체);
+가격 5000원 이상인거 삭제
+db.jul05_menu.deleteMany(
+{"m_price":{"$gte":5000}
+});
+
+
+
+
+테이블=>JS의 배열
+데이터=>JS객체 
+RDB:테이블속의 데이터
+MongoDB[]속의 {}->JSON
+
+Spring+Maven+MyBatis+OracleDB
+요청들어왔을때 JSON만들려면
+
+MongoDB: 조회결과자체가 JSON
+
+---------------------------------------------------------------------------
+앞으로 있을 프로젝트나 실무에서는
+웹사이트는 ->Spring으로
+JSON은 Node.js+MongoDB로 해볼만
+
+
+
+

@@ -1,0 +1,54 @@
+SpringMVC+Maven+MyBatis로 웹사이트만들러면 
+ xml에 뭐 추가하고 많은데
+그거 자동으로 해주는게
+->Spring boot
+
+Node.js:자동완성이 그렇게 필요x
+
+JavaScript로
+	eclipse -> eGovFramework
+javaScript에서 eclipse작업 그닥 도움 못받음
+
+
+	
+Spring?
+react?
+
+maven
+	maven:중앙저장소에서 자동으로 받아와서
+	예전 Java하던 시절:인터넷 가서 .jar받아서 프로젝트
+
+=================================================
+cmd에서
+ npm  install  이름  [-g]
+	-g가 붙으면 :Node.js본체에 붙이는 add-on
+	-g 안붙으면: 프로젝트에 넣는 lib
+
+Node.js 자동재시작모듈(nodemon)
+	npm install nodemon -g
+
+Node.js 프로젝트생성모듈(express) Springboot처럼 자동으로
+	npm install express -g
+	npm install express-generator@4 -g
+
+프로젝트 만들기
+	프로젝트 만들고 싶은데 가서 cmd
+	express 프로젝트명
+		Jul04_1_NodeJSTest
+	cd 프로젝트명:폴더 들어가서
+		cd Jul04_1_NodeJSTest
+	npm install:필요한 lib
+
+Node.js+MongoDB에 필요한 라이브러리 설치
+npm install mongojs
+---------------------------------------------
+실행 
+	node 파일명
+	nodemon 파일명
+		nodemon app.js
+-----------------------------------------------
+app.js 편집
+
+
+
+

@@ -1,0 +1,47 @@
+Node.js 로 Socket통신 하기위한 순서->
+	express프로젝트 만들고
+	cd project
+	npm install
+	npm install socket.io@2
+	nodemon app.js
+
+app.js 들어가서 편집->
+	var io = require("socket.io")();
+	io.listen(7777);
+
+여기 주소 들어가서 확인 자기 Socket통신할 Ip주소랑 포트번호 기입->
+	http://195.168.9.63:9999/socket.io/socket.io.js
+
+기존 View쪽에 Script추가->
+<script type="text/javascript"
+	src="http://195.168.9.63:7777/socket.io/socket.io.js"></script>
+
+그리고 메인 함수에 v ar socket도 추가->
+	var socket = io.connect("http://195.168.9.63:7777");
+
+그 후에 잘 연결돼서 작동하는지 확인->
+	io.sockets.on("connection", function(socket){
+		console.log("asd");
+	});
+
+
+신호보내기 emit(제목,내용);->
+
+$.getJSON(u, function(data) {
+	socket.emit("clientMsg","등록");		
+	});
+
+app.js측에서 받기 socket.on(제목,function(객체){
+}->
+socket.on("clientMsg",function(msg){
+		io.sockets.emit("severMsg",msg);
+	});
+
+그리고 받고나서 다시 그 신호를 전달해서 등록했다는걸 알리는..
+그래서 다시 View쪽에서 socket.on으로 다시 신호를 받아서 그 다시 get을해서 화면에 실시간
+->
+socket.on("severMsg",function(){
+		show();
+		//여기서 신호를 받고 누군가 등록해서 이 메세지가 오게된것 그래서 여기서 show();를쓰면
+		//실시간 완성
+	});

@@ -1,0 +1,51 @@
+1)Spring MVC project만들고
+
+2)Spring MVC+MyBatis연동에 필요한 .jar들 (교재7번(2.1,2.2))
+내 Maven txt참조
+
+3)mapper.xml
+
+4)mapper.xml과 한 세트인 interface
+xml  namespace에  interface의 패키지명과 interface명을 써준다
+5)Spring MVC + MyBatis에 필요한 객체들 만들어놓기(유지보수하기 좋게)
+(servlet-context.xml)에 가서 교재7번(3)을 붙여넣기 
+SqlSessionTemplate
+SqlSession으로부터 상속(extends)받는
+SqlSession+자동연결/정리+auto commit
+
+6)post방식 요청 파라메터 한글처리(web.xml)
+교재 6번에 복사 붙여넣기
+
+V->C->DAO->interface->mapper.xml(처음에)
+mapper.xml->interface->DAO->C->V(익숙해지면)
+
+
+// JSP 폴더명/프로젝트명/컨트롤러명
+	// 컨트롤러에서 실행
+
+	// Spring 폴더명/패키지명 마지막 자리
+	// 그냥 프로젝트에서 실행
+	// 기존처럼 컨트롤러에서 실행하면 실행x
+	// 패키지명이 같게될경우 실행할때 패키지명4자리를 통해서 들어가는것이기에
+	// 아무리 다른 프로젝트명이라도 패키지명이 같으면
+	// 어떤 패키지로 들어갈지 모르기에 패키지명이 같으면 안됀다
+
+
+
+
+
+FrameWork 규칙대로
+src/main/java:.java파일
+src/main/resources:.java에서 쓸 자원파일(.xml같은거)
+src 
+    main
+          webapp
+	resources:V에서 쓸 자원파일(그림,음악,css,js)
+	WEB-INF
+	  Spring
+	    appServlet/servlet-context.xml:이 프로젝트에만 영향 (주로 이거씀)
+	    root-context.xml:모든 프로젝트 다 영향
+	  	  beans.xml역활(aac방식으로 이미 불러지는중)
+	   views:jsp넣기(HTML X)
+	   web.xml:프로젝트 설정 파일
+pom.xml

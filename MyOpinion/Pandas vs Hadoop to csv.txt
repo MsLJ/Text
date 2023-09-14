@@ -1,0 +1,7 @@
+회사가 원하는->
+.csv/.txt를 Numpy/Pandas로
+
+기술적인건
+DB->.csv/.txt->Hadoop
+->Numpy/Pandas->ML/DL->결과를 JSON
+->그걸써서 만들자
